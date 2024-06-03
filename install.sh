@@ -56,6 +56,9 @@ packages=(
   man-pages
   texinfo
 
+  # Network time sync
+  chrony
+
   # Arch doesn't come with sudo by default
   sudo
 
@@ -97,7 +100,10 @@ locale-gen
 
 # Network configuration
 echo "$HOSTNAME" >/etc/hostname
-systemctl enable NetworkManager
+systemctl enable NetworkManager.service
+
+# Network time sync
+systemctl enabel chronyd.service
 
 # Set root password
 passwd
