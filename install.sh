@@ -78,11 +78,14 @@ packages=(
 
   # Misc required dev tools
   xsel
+  jq
+  jwt-cli
   vim
   openssh
   docker
   git
   azure-cli
+  d2
 )
 pacstrap -K /mnt "${packages[@]}"
 
@@ -172,7 +175,7 @@ EOF
 
 # Install chromium and Dotnet SDK
 # Don't forget to enable wayland support in chromium!
-sudo pacman -S chromium dotnet-sdk dotnet-sdk-6.0 dotnet-sdk-7.0 aspnet-runtime aspnet-runtime-6.0 aspnet-runtime-7.0
+sudo pacman -S chromium dotnet-sdk dotnet-sdk-6.0 dotnet-sdk-7.0 aspnet-runtime aspnet-runtime-6.0 aspnet-runtime-7.0 python-poetry pyenv
 
 # Install AUR stuff (git clone these first if you don't have them already)
 cd ~/AUR/jetbrains-toolbox
