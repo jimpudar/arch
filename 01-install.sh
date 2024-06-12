@@ -9,7 +9,7 @@ USERNAME="jmp"
 HOSTNAME="jpudar-rvbd"
 
 # connect to wifi w/ station wlan0 scan, station wlan0 connect <SSID>
-iwctl
+# iwctl
 
 # Wipe root and boot partitions. Don't accidentally format your /home partition!
 mkfs.ext4 "$ROOT_PARTITION"
@@ -67,9 +67,9 @@ packages=(
   bluez-utils
 
   # Webcam utilities
-  v4l2-ctl
-  guvcview
-  cameractrls
+  # v4l2-ctl
+  # guvcview
+  # cameractrls
 
   # An alternative shell. You could use bash instead.
   zsh
@@ -92,32 +92,6 @@ pacstrap -K /mnt "${packages[@]}"
 genfstab -U /mnt >/mnt/etc/fstab
 
 arch-chroot /mnt
-
-# Time
-ln -sf /usr/share/zoneinfo/America/Detroit /etc/localtime
-hwclock --systohc
-
-# Localization
-echo 'LANG=en_US.UTF-8' >/etc/locale.conf
-locale-gen
-
-# Network configuration
-echo "$HOSTNAME" >/etc/hostname
-systemctl enable NetworkManager.service
-
-# Network time sync
-systemctl enabel chronyd.service
-
-# Set root password
-passwd
-
-# Boot loader
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-grub-mkconfig -o /boot/grub/grub.cfg
-
-# Reboot into newly installed environment
-exit
-reboot
 
 # Reconnect to the Internet by activating WiFi
 nmtui
