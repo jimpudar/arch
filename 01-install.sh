@@ -7,6 +7,7 @@ set -ex
 # Wipe root and boot partitions. Don't accidentally format your /home partition!
 mkfs.ext4 "$ROOT_PARTITION"
 mkfs.fat -F 32 "$BOOT_PARTITION"
+mkswap "$SWAP_PARTITION"
 
 # Mount everything under /mnt
 swapon "$SWAP_PARTITION"
