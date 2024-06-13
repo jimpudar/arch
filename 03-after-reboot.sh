@@ -62,9 +62,13 @@ NeedsTargets
 Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
 EOF
 
-# Install chromium and Dotnet SDK
+# Install Dotnet SDK
 # Don't forget to enable wayland support in chromium!
-sudo pacman -S chromium dotnet-sdk dotnet-sdk-6.0 dotnet-sdk-7.0 aspnet-runtime aspnet-runtime-6.0 aspnet-runtime-7.0 python-poetry pyenv
+pacman -S dotnet-sdk dotnet-sdk-6.0 dotnet-sdk-7.0 aspnet-runtime aspnet-runtime-6.0 aspnet-runtime-7.0 python-poetry pyenv qemu-full cockpit cockpit-machines cockpit-storaged firewalld iptables-nft dnsmasq virt-install virt-viewer swtpm virt-manager virt-firmware rsync
+
+systemctl enable --now libvirtd.service
+systemctl enable --now cockpit.socket
+systemctl enable --now firewalld
 
 # Install AUR stuff (git clone these first if you don't have them already)
 su jmp
