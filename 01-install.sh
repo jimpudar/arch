@@ -1,13 +1,6 @@
 #!/bin/bash
 set -ex
 
-BOOT_PARTITION="/dev/nvme1n1p1"
-SWAP_PARTITION="/dev/nvme1n1p2"
-ROOT_PARTITION="/dev/nvme1n1p3"
-HOME_PARTITION="/dev/nvme0n1p1"
-USERNAME="jmp"
-HOSTNAME="jpudar-rvbd"
-
 # connect to wifi w/ station wlan0 scan, station wlan0 connect <SSID>
 # iwctl
 
