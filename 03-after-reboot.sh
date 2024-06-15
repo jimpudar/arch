@@ -63,6 +63,12 @@ systemctl enable --now libvirtd.service
 systemctl enable --now cockpit.socket
 systemctl enable --now firewalld
 
+# Set up print queue
+if [[ -n "$PRINTER_IP_ADDRESS" ]]
+  then
+    hplip -i "$PRINTER_IP_ADDRESS"
+fi
+
 # Install AUR stuff (git clone these first if you don't have them already)
 su jmp
 cd /home/jmp/AUR/jetbrains-toolbox

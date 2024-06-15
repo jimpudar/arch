@@ -70,6 +70,7 @@ packages=(
   cups-pdf
   avahi
   nss-mdns
+  hplip
 
   # An alternative shell. You could use bash instead.
   zsh
