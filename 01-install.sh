@@ -64,6 +64,11 @@ packages=(
   # v4l2-ctl
   # guvcview
   # cameractrls
+  
+  # Printing
+  cups
+  cups-pdf
+  avahi
 
   # An alternative shell. You could use bash instead.
   zsh

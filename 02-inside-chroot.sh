@@ -17,6 +17,9 @@ systemctl enable NetworkManager.service
 # Network time sync
 systemctl enable chronyd.service
 
+# Avahi Daemon for printer discovery
+systemctl enable avahi-daemon.service
+
 # Set root password
 passwd
 
