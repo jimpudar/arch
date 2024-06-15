@@ -69,6 +69,7 @@ packages=(
   cups
   cups-pdf
   avahi
+  nss-mdns
 
   # An alternative shell. You could use bash instead.
   zsh

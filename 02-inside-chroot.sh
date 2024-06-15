@@ -19,6 +19,8 @@ systemctl enable chronyd.service
 
 # Avahi Daemon for printer discovery
 systemctl enable avahi-daemon.service
+echo 'hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns' >>/etc/nsswitch.conf
+vim /etc/nsswitch.conf
 
 # Set root password
 passwd
