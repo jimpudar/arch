@@ -87,6 +87,9 @@ packages=(
   git
   azure-cli
   d2
+
+  # Required for interactive AAD authentication in DataGrip
+  gvfs
 )
 pacstrap -K /mnt "${packages[@]}"
 
